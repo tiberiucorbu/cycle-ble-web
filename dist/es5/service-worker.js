@@ -52,12 +52,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return n.d(t, "a", t), t;
   }, n.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t);
-  }, n.p = "", n(n.s = 96);
+  }, n.p = "", n(n.s = 97);
 }({
-  96: function _(e, t, n) {
-    e.exports = n(97);
+  97: function _(e, t, n) {
+    e.exports = n(98);
   },
-  97: function _(e, t) {
+  98: function _(e, t) {
     var n = "mysite-static-v1";
 
     function r() {
@@ -98,7 +98,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                e.waitUntil(_asyncToGenerator(
+                _context2.next = 2;
+                return e.waitUntil(_asyncToGenerator(
                 /*#__PURE__*/
                 regeneratorRuntime.mark(function _callee() {
                   return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -120,7 +121,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                   }, _callee);
                 }))());
 
-              case 1:
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -185,22 +186,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     regeneratorRuntime.mark(function _callee5() {
       "use strict";
 
+      var e;
       return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              if ("indexedDB" in self) {
-                _context5.next = 2;
-                break;
-              }
+              e = self.indexedDB;
+              _context5.next = 3;
+              return e.open("tracks", 1);
 
-              return _context5.abrupt("return", void console.log("This browser doesn't support IndexedDB"));
-
-            case 2:
-              _context5.next = 4;
-              return self.idb.open("test-db1", 1);
-
-            case 4:
+            case 3:
             case "end":
               return _context5.stop();
           }
