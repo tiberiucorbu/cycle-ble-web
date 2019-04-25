@@ -16,16 +16,25 @@ async function cacheStaticAssets() {
     ]);
 }
 
-self.addEventListener('install', async (event: any) => {
-    event.waitUntil(cacheStaticAssets());
+self.addEventListener('install', async (event) => {
+    await event.waitUntil(cacheStaticAssets());
 });
 
-async function loadFromCache(request: any) {
+async function loadFromCache(request) {
     const cache = await openCache();
     return cache.match(request);
 }
 
-self.addEventListener('fetch', async (evt: any) => {
+self.addEventListener('fetch', async (evt) => {
     console.log('The service worker is serving the asset.');
     evt.respondWith(loadFromCache(evt.request));
 });
+
+(async function () {
+    'use strict';
+
+    const idb = self.indexedDB;
+    const db = await idb.open('tracks', 1);
+
+
+})();

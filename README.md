@@ -1,14 +1,14 @@
-# TypeScript to es 5 to next WebComponent setup
+# Cycle Web App
 
-This is sample repository adopts custom elements for IE11 and modern browsers
-
-![network demo](./doc/what-does-it-do.png)
-
-## Demo
-
-https://tiberiucorbu.github.io/es5-esnext-webcomponent-project-starter/
+This is an experimental app that enables a chrome powered page to connect to a Bluetooth Low Energy "Cycle Speed and Cadence" Service and display it's measurement
 
 ## Building
+
+### Install the dependencies
+
+```shell
+npm ci
+```
 
 ### Building the repo
 

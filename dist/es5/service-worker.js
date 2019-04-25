@@ -57,37 +57,35 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   96: function _(e, t, n) {
     e.exports = n(97);
   },
-  97: function _(e, t, n) {
-    "use strict";
+  97: function _(e, t) {
+    var n = "mysite-static-v1";
 
-    var r = "mysite-static-v1";
-
-    function o() {
-      return _o.apply(this, arguments);
+    function r() {
+      return _r.apply(this, arguments);
     }
 
-    function _o() {
-      _o = _asyncToGenerator(
+    function _r() {
+      _r = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee5() {
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      regeneratorRuntime.mark(function _callee6() {
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _context5.next = 2;
-                return caches.open(r);
+                _context6.next = 2;
+                return caches.open(n);
 
               case 2:
-                return _context5.abrupt("return", _context5.sent);
+                return _context6.abrupt("return", _context6.sent);
 
               case 3:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5);
+        }, _callee6);
       }));
-      return _o.apply(this, arguments);
+      return _r.apply(this, arguments);
     }
 
     self.addEventListener("install",
@@ -108,7 +106,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                       switch (_context.prev = _context.next) {
                         case 0:
                           _context.next = 2;
-                          return o();
+                          return r();
 
                         case 2:
                           _context.t0 = ["/", "/dist/es-next/polyfills.js", "/dist/es-next/bundle.js", "/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"];
@@ -152,7 +150,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                         switch (_context3.prev = _context3.next) {
                           case 0:
                             _context3.next = 2;
-                            return o();
+                            return r();
 
                           case 2:
                             _context3.t0 = e;
@@ -182,6 +180,32 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return function (_x2) {
         return _ref3.apply(this, arguments);
       };
-    }());
+    }()), _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee5() {
+      "use strict";
+
+      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              if ("indexedDB" in self) {
+                _context5.next = 2;
+                break;
+              }
+
+              return _context5.abrupt("return", void console.log("This browser doesn't support IndexedDB"));
+
+            case 2:
+              _context5.next = 4;
+              return self.idb.open("test-db1", 1);
+
+            case 4:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }))();
   }
 });

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Component Demo</title>
-
     <script src="./dist/es-next/polyfills.js"></script>
     <script src="./dist/modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Inconsolata" rel="stylesheet">
+
     <script>
         // Internet Explorer 6-11
         const isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -34,27 +35,51 @@
         }
 
     </script>
+    <style>
+        html, body {
+            /*font-size: 16px;*/
+            margin: 0;
+            padding: 0;
+            min-height: calc(100vh);
+            min-width: 100vw;
+            display: flex;
+            flex-flow: column nowrap;
+
+        }
+        .section-block {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        @media screen and (orientation:portrait) {
+            .section-block {
+                height: 50vh;
+                width : 100vw;
+            }
+        }
+
+        @media screen and (orientation:landscape) {
+            body {
+                flex-flow: row nowrap;
+            }
+
+            .section-block {
+                width: 50vw;
+                height : 100vh;
+            }
+        }
+    </style>
 </head>
 <body>
-<my-element></my-element>
-<my-typed-lit-element mood="working"></my-typed-lit-element>
+<tcb-leaflet-map id="map" class="section-block"></tcb-leaflet-map>
+<tcb-csc-gauges class="section-block"></tcb-csc-gauges>
 <script>
     if (isIE) {
         loadScriptAsync('./dist/es5/bundle.js');
     } else {
-        loadScriptAsync('./dist/es-next/bundle.js');
+        loadScriptAsync('./bundle.js');
     }
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-            navigator.serviceWorker.register('./dist/es-next/service-worker.js').then(function (registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function (err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
+
 </script>
 </body>
 </html>
