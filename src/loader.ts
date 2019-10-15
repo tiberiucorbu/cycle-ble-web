@@ -1,6 +1,4 @@
-// Internet Explorer 6-11
-// @ts-ignore
-const isIE = /*@cc_on!@*/false || !!document['documentMode'];
+import '@webcomponents/webcomponentsjs/webcomponents-loader.js';
 
 function loadScript(scriptUrl: string): HTMLScriptElement {
     const script = document.createElement('script');
@@ -17,9 +15,18 @@ function loadScriptAsync(scriptUrl: string): HTMLScriptElement {
     return script;
 }
 
-if (isIE) {
-    loadScript('./dist/polyfill.js');
-    loadScript('./dist/custom-elements-es5-adapter.js');
+
+function isES5() {
+    "use strict";
+    if (typeof Symbol == "undefined") return true;
+    try {
+        Function("()=>{}"); return false;
+    } catch (e) { return true; }
+    return false;
+}
+
+if (isES5()) {
+    loadScript('./dist/custom-elements-es5-adapter.js');    
     loadScriptAsync('./dist/es5-bundle.js');
 } else {
     loadScriptAsync('./dist/es-next-bundle.js');
