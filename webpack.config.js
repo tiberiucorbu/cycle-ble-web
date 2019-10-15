@@ -4,12 +4,13 @@ module.exports = {
     entry: {
         'bundle': [path.resolve(__dirname, 'src/index.ts')],
         'polyfills': [path.resolve(__dirname, 'src/polyfills.ts')],
-        'service-worker': [path.resolve(__dirname, 'src/service/service-worker.js')]
+        'loader': [path.resolve(__dirname, 'src/loader.ts')]
+
     },
     context: __dirname,
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/es-next'),
+        path: path.resolve(__dirname, 'dist'),
     },
     devtool: "inline-source-map",
     mode: "production",
@@ -20,7 +21,6 @@ module.exports = {
     module: {
         rules: [{test: /\.tsx?$/, loader: 'ts-loader'}, {test: /\.css?$/, loader: 'raw-loader'}],
     },
-
     plugins: [
         new ForkTsCheckerWebpackPlugin()
     ],
@@ -28,6 +28,10 @@ module.exports = {
         https: true,
         port: 8092,
         hot: false,
-        inline: false
+        inline: false,
+        headers: {
+            'Service-Worker-Allowed': '/'
+        }
+
     }
 };
