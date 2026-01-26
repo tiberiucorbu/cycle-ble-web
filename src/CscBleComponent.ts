@@ -117,7 +117,7 @@ export class CscBleComponent extends HTMLElement {
     private updateFromCscMeasurementEvent(e: Event) {
         // console.log(e);
         // @ts-ignore
-        const value = e.target.value as DataView;
+        const value = (e.currentTarget as BluetoothRemoteGATTCharacteristic).value as DataView;
         console.log(value.buffer);
 
         const res = this.extractValues(value);

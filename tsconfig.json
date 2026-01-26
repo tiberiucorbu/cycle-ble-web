@@ -11,13 +11,12 @@
     "declaration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "target": "esnext",
-    "module": "es2015",
+    "target": "es2020",
+    "module": "esnext",
     "strict": true,
     "lib": [
       "dom",
       "esnext"
-
     ]
   },
   "include": [

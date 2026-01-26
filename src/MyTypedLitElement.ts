@@ -1,4 +1,5 @@
-import {LitElement, html, css, customElement, property} from 'lit-element';
+import {LitElement, html, css} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 
 // This decorator defines the element.
 @customElement('my-typed-lit-element')
